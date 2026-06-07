@@ -1,0 +1,22 @@
+{
+  "name": "codex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:admin": "playwright test src/tests/admin/tc_admin_01 --project=chromium --workers=1",
+    "test:e2e:seller": "playwright test src/tests/seller/tc_seller_01 --project=chromium --workers=1",
+    "test:e2e:buyer": "playwright test src/tests/buyer",
+    "test:e2e:report": "playwright show-report playwright-report --port 9324"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2",
+    "dotenv": "^17.4.2",
+    "typescript": "^6.0.3"
+  }
+}
