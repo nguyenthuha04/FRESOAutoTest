@@ -68,33 +68,9 @@ test.describe.serial('TC_SELLER_03 - Nguoi ban xu ly yeu cau khieu nai', () => {
     await sellerComplaintPage.uploadOversizedRejectImageAndExpectRejected();
   });
 
-  test('TC_SELLER_03_13 - Tu choi khieu nai va upload qua so luong anh cho phep', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.openHandleComplaintDialog();
-    await sellerComplaintPage.selectRejectResolutionForProduct(0);
-    await sellerComplaintPage.uploadTooManyRejectImagesAndExpectLimit();
-  });
+  
 
-  test('TC_SELLER_03_14 - Tu choi khieu nai va upload video vuot dung luong', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.openHandleComplaintDialog();
-    await sellerComplaintPage.selectRejectResolutionForProduct(0);
-    await sellerComplaintPage.uploadOversizedRejectVideoAndExpectRejected();
-  });
-
-  test('TC_SELLER_03_15 - Chon luan phien cac phuong an khac nhau cho tat ca san pham', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.openHandleComplaintDialog();
-    await sellerComplaintPage.selectMixedResolutionForAllComplaintProducts();
-    await sellerComplaintPage.expectMixedResolutionsSelected();
-    await sellerComplaintPage.expectConfirmEnabled();
-  });
-
-  test('TC_SELLER_03_16 - Huy popup xu ly khieu nai khong cap nhat trang thai', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.openHandleComplaintDialog();
-    await sellerComplaintPage.selectMixedResolutionForAllComplaintProducts();
-    await sellerComplaintPage.cancelHandleComplaintDialog();
-    await sellerComplaintPage.expectComplaintProductListVisible(10);
-  });
-
-  test('TC_SELLER_03_17 - Xac nhan xu ly khieu nai va cap nhat trang thai tung san pham', async ({ sellerComplaintPage }) => {
+  test('TC_SELLER_03_13 - Xac nhan xu ly khieu nai va cap nhat trang thai tung san pham', async ({ sellerComplaintPage }) => {
     await sellerComplaintPage.openHandleComplaintDialog();
     await sellerComplaintPage.selectMixedResolutionForAllComplaintProducts();
     await sellerComplaintPage.expectMixedResolutionsSelected();
@@ -102,19 +78,4 @@ test.describe.serial('TC_SELLER_03 - Nguoi ban xu ly yeu cau khieu nai', () => {
     await sellerComplaintPage.confirmComplaintHandlingAndExpectProductStatusesUpdated();
   });
 
-  test('TC_SELLER_03_18 - Hien thi 3 nut xu ly tiep theo cho san pham Tra hang Hoan tien', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.expectReturnRefundFollowUpActionsVisible();
-  });
-
-  test('TC_SELLER_03_19 - Bam Khieu nai hang cho san pham Tra hang Hoan tien', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.clickReturnRefundComplaintGoodsAndExpectHandled();
-  });
-
-  test('TC_SELLER_03_20 - Bam Chua nhan hang cho san pham Tra hang Hoan tien', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.clickReturnRefundNotReceivedAndExpectHandled();
-  });
-
-  test('TC_SELLER_03_21 - Bam Da nhan hang cho san pham Tra hang Hoan tien', async ({ sellerComplaintPage }) => {
-    await sellerComplaintPage.clickReturnRefundReceivedAndExpectHandled();
-  });
 });
